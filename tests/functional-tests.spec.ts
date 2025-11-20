@@ -16,3 +16,10 @@ test("Functional - Invalid user shows error message", async ({ page }) => {
 
    //await expect(page.getByText("no user found")).toBeVisible();
 });
+test('Functional - No profile visible before search', async ({ page }) => {
+  await page.goto('https://gh-users-search.netlify.app/');
+
+  await expect(page.locator('img').first()).toBeVisible();
+});
+
+

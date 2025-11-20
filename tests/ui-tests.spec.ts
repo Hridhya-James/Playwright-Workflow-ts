@@ -18,3 +18,9 @@ test("UI - Welcomee Page title is correct", async ({ page }) => {
 
   await expect(page.locator("text=Welcome")).toBeVisible();
 });
+test('UI - Search input placeholder text is correct', async ({ page }) => {
+  await page.goto('https://gh-users-search.netlify.app/');
+
+  const searchInput = page.getByTestId('search-bar');
+  await expect(searchInput).toHaveAttribute('placeholder', /enter github user name/i);
+});
