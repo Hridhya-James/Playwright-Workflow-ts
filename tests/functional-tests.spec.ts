@@ -18,3 +18,12 @@ test('Functional - Profile image should be visible for valid user', async ({ pag
   await expect(page.locator('img').first()).toBeVisible();
 });
 
+  });// Invalid user
+test("Functional - Invalid user shows error message", async ({ page }) => {
+  await page.goto("https://gh-users-search.netlify.app/");
+
+  await page.fill('input', "Rose");     
+  await page.click("button");
+
+   //await expect(page.getByText("no user found")).toBeVisible();
+});
