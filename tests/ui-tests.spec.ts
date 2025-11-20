@@ -11,3 +11,10 @@ test('UI - Page title is correct', async ({ page }) => {
   await page.goto('https://gh-users-search.netlify.app/');
   await expect(page).toHaveTitle(/Github User - Starter/i);
 });
+//welcome title
+
+test("UI - Welcomee Page title is correct", async ({ page }) => {
+  await page.goto("https://gh-users-search.netlify.app/");
+
+  await expect(page.locator("text=Welcome")).toBeVisible();
+});
