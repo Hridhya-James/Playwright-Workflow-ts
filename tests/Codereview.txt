@@ -1,0 +1,19 @@
+Code Review Comments
+
+    The suite uses both getByText and CSS selectors. Where possible, prefer data-testid attributes or ARIA roles to ensure selectors are less fragile and not impacted by text changes.
+
+    The invalid user test has a commented-out expectation. This should be active to fully verify error handling. Make sure the error message is reliably displayed for edge cases.
+
+    The test for no profile visible before search assumes the first image (probably a logo or placeholder) is always visible. Instead, verify that the actual user profile UI is not rendered before a search.
+
+    Consider organizing tests using test.describe groups for better readability and separating positive, negative, and state validation tests.
+
+    Add explicit assertions before user actions to verify initial UI state (e.g., placeholder in input, button disabled).
+
+    For enhanced coverage, test edge cases: empty input, rapidly repeated searches, network errors, or searches with special characters.
+
+    Abstract repeated selectors (input, button, etc.) as constants or utility functions to avoid duplication and improve maintainability.
+
+    Use Playwright’s test.beforeEach for navigation setup if all tests navigate to the same page, reducing code repetition.
+
+    Ensure error messages are localized or accessible via ARIA for more robust and accessible tests.
